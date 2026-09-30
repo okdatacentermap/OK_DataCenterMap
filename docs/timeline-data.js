@@ -10,7 +10,7 @@
 //   projects  optional list of project ids when the text does not name the project; otherwise filed by keywords
 //   topics    optional list of topic ids; otherwise filed by tracks + keywords
 window.TIMELINE = {
-  updated: '2026-09-27',
+  updated: '2026-09-30',
   tracks: {
     anthem: 'Project Anthem',
     mpd: 'MPD-6 / Fair Oaks',
@@ -61,6 +61,20 @@ window.TIMELINE = {
           title: 'Ranch owner appointed to planning-commission transition team',
           text: 'Wagoner County appoints a Robson family member to the transition team for a possible city–county planning commission with Broken Arrow (now the Wagoner Metropolitan Area Planning Commission).',
           src: ['official/Wagoner/2022-10-17_Wagoner-BOCC-Minutes_Robson-planning-transition-team.pdf'] }
+      ]
+    },
+    {
+      id: 'g2022', label: '2022 – Feb 2023', title: 'Elsewhere in Oklahoma: the first big announcements',
+      summary: 'Before any of the Tulsa-area projects, the state announces a German company’s North American headquarters at MidAmerica Industrial Park, and Port Muskogee lands a 200 MW crypto-mining data center.',
+      events: [
+        { id: '2022-03-10-northern-data', date: '2022-03-10', tracks: ['region'],
+          title: 'Northern Data announces its North American headquarters at MidAmerica Industrial Park',
+          text: 'At least $270M on a 116-acre campus in Pryor: an existing 100,000 sq ft building plus about 150,000 sq ft of new data centers over five years, up to 250 MW from GRDA, 150 jobs at first (Oklahoma Commerce).',
+          src: [['Oklahoma Commerce — Northern Data at MidAmerica Industrial Park', 'https://www.okcommerce.gov/northern-data-to-build-north-american-headquarters-at-midamerica-industrial-park/']] },
+        { id: '2023-02-17-polaris', date: '2023-02-17', tracks: ['region', 'power'],
+          title: 'Polaris Technologies announces a $100M, 200 MW data center at Port Muskogee',
+          text: 'A crypto-mining data center in the John T. Griffin Industrial Park, with a planned 200 MW Phase II and 20 jobs (City of Muskogee).',
+          src: [['City of Muskogee — Polaris Technologies invests $100M', 'https://www.muskogeeok.gov/news_detail_T2_R666.php']], map: [35.6876, -95.3916, 13] }
       ]
     },
     {
@@ -261,7 +275,35 @@ window.TIMELINE = {
         { id: '2025-12-31-grda-end', date: '2025-12-31', projects: ['infra', 'anthem'], tracks: ['power'],
           title: 'GRDA–PSO direct agreement expires',
           text: 'Both utilities remain in the Southwest Power Pool market.',
-          src: ['spp_grda'], map: [36.1717, -95.7537, 14] }
+          src: ['spp_grda'], map: [36.1717, -95.7537, 14] },
+        { id: '2025-03-31-bifrost', date: '2025-03-31', tracks: ['region', 'env'],
+          title: 'Stormwater permit: Polaris "Bifrost" substation and miners, Muskogee',
+          text: 'ODEQ OKR1036480, Polaris Technology Inc, 4800 S 24th St W.',
+          src: ['odeq_in'], map: [35.6876, -95.3916, 14] },
+        { id: '2025-06-09-chickasha', date: '2025-06-09', tracks: ['region', 'power'],
+          title: 'Chickasha: a data center and a 500 MW gas plant at the airport industrial park',
+          text: 'Citizen Capital and Lightfield Energy have bought 280 acres about half a mile west of US-81: 200 acres for a data center and a natural-gas plant of over 500 MW built over about three years, 80 for other development; an estimated $3.5B+. The City Council approved three preparatory measures in June 2025. An ODEQ permit for "Chickasha Airport Industrial Park – Phase I" is pending.',
+          src: [['OK Energy Today — more details about the proposed Chickasha data center', 'https://okenergytoday.com/2025/06/more-details-about-the-proposed-chickasha-data-center/'], 'odeq_pend'], map: [35.0914, -97.9743, 13] },
+        { id: '2025-08-11-springboard', date: '2025-08-11', tracks: ['region', 'money'],
+          title: 'Muskogee County approves the "Springboard" data-center incentive plan',
+          text: 'The Local Development Act plan names Acacia House Group LLC as the subsidiary of "a leading U.S.-based data center operator": up to four phases of $1B+ each on 320 acres in Sec 19 T13N R16E near Council Hill, a 100% exemption for 25 years, PILOT payments of $1.35M a year for Phase 1 and $1.7M a year in community payments per data center. The County approved it that morning; the library board approved the tax agreement with Acacia House Group LLC the same afternoon.',
+          src: ['spring_plan', 'eols_min'], map: [35.588, -95.6466, 13] },
+        { id: '2025-09-08-weitz', date: '2025-09-08', tracks: ['region', 'env'],
+          title: 'Stormwater permit: "Confidential Data Center", Council Hill',
+          text: 'ODEQ OKR1036918, The Weitz Company, 17515 W 113rd St S; its point lies on the south edge of the Springboard Project Site as mapped. A second permit, "Springboard 123rd St" (Nabholz Construction, road work on W 123rd St S), follows on Dec 2.',
+          src: ['odeq_in'], map: [35.588, -95.6466, 13] },
+        { id: '2025-09-22-cerebras', date: '2025-09-22', tracks: ['region'],
+          title: 'Cerebras opens an AI data center in Oklahoma City',
+          text: 'Built with Scale Datacenters; direct-to-chip, closed-loop water cooling (Cerebras). The news list gives 10 MW.',
+          src: [['Cerebras — Oklahoma City data center', 'https://www.cerebras.ai/blog/okc'], ['News 9 — data-center list (2026-06-10)', 'https://www.news9.com/oklahoma-city-news/where-are-data-centers-are-being-built-oklahoma-list']] },
+        { id: '2025-11-13-stillwater', date: '2025-11-13', tracks: ['region'],
+          title: 'Stillwater: final plat approved for Google’s data-center site',
+          text: 'Planning Commission 4-0 on the final plat of the industrial site along Richmond Road between Perkins and Jardot Roads (202 acres, three lots); building permits for Lots 1 and 2 already approved.',
+          src: [['OK Energy Today — construction gets go-ahead for Stillwater data center', 'https://www.okenergytoday.com/2025/11/construction-gets-go-ahead-for-stillwater-data-center/']], map: [36.1745, -97.043, 13] },
+        { id: '2025-11-20-google-muskogee', date: '2025-11-20', tracks: ['region', 'power'],
+          title: 'Google announces two Muskogee County campuses, near Council Hill and Summit',
+          text: 'Part of its $9B Oklahoma plan, with 600 MW of new solar under long-term agreements with NextEra (Rush Springs Solar, Stephens County; High Spring Solar, Muskogee County) and $1M for Muskogee schools, small businesses and trades training.',
+          src: [['Port Muskogee — Google announces two campuses', 'https://www.portmuskogee.com/google-announces-two-data-center-campuses-in-muskogee-county-oklahoma_news/'], ['KRMG — officials share details', 'https://www.krmg.com/2025/11/25/officials-share-new-details-about-two-google-data-centers-coming-to-muskogee-county/']] }
       ]
     },
     {
@@ -329,7 +371,15 @@ window.TIMELINE = {
         { id: '2026-03-31-mustang-tid', date: '2026-03-31', tracks: ['region', 'money'],
           title: 'Claremore committee recommends 100% tax break for "Project Mustang"',
           text: 'Beale Infrastructure, north of the Claremore Industrial Park; rising payments in lieu of taxes plus $250K/yr to the city.',
-          src: [['Claremore Progress — TID committee', 'https://www.claremoreprogress.com/news/tid-committee-recommends-giving-project-mustang-100-property-tax-break/article_8bf0cda3-d2f9-4c9a-95f9-df038248b94f.html'], ['City of Claremore — Project Mustang FAQ', 'https://claremore.com/project-mustang-faq/']] }
+          src: [['Claremore Progress — TID committee', 'https://www.claremoreprogress.com/news/tid-committee-recommends-giving-project-mustang-100-property-tax-break/article_8bf0cda3-d2f9-4c9a-95f9-df038248b94f.html'], ['City of Claremore — Project Mustang FAQ', 'https://claremore.com/project-mustang-faq/']] },
+        { id: '2026-01-21-beltline-okc', date: '2026-01-21', tracks: ['region', 'law'],
+          title: 'OKC Planning Commission backs Beltline Energy’s Frisco Road site, 7-0',
+          text: '295.5 acres near I-40 and N Frisco Rd, west of Yukon: 111.5 ac at 3025 N Frisco Rd and 184 ac at 13921 NW 23rd St (BLE Landholdings, Atlanta). The City Council decides.',
+          src: [['OK Energy Today — data center wins rezoning approval', 'https://www.okenergytoday.com/2026/01/data-center-wins-rezoning-approval-from-okc-planning-board/']], map: [35.4935, -97.7777, 13] },
+        { id: '2026-02-05-iren', date: '2026-02-05', tracks: ['region', 'power'],
+          title: 'IREN announces a 1.6 GW data-center campus in Oklahoma',
+          text: 'About 2,000 acres; grid studies complete and power ramping from 2028. The company does not name the county.',
+          src: [['IREN — 1.6 GW campus in Oklahoma', 'https://iren.com/resources/news/iren-oklahoma-1-6gw-data-center-campus']] }
       ]
     },
     {
@@ -394,7 +444,23 @@ window.TIMELINE = {
         { id: '2026-06-15-ba', date: '2026-06-15', tracks: ['region'],
           title: 'Broken Arrow adopts a six-month data-center moratorium',
           text: 'After a prospect’s letter of intent on east Broken Arrow land expired. Runs to Dec 31, 2026.',
-          src: [['City of Broken Arrow — proposed data center', 'https://www.brokenarrowok.gov/business/economic-development/proposed-data-center']] }
+          src: [['City of Broken Arrow — proposed data center', 'https://www.brokenarrowok.gov/business/economic-development/proposed-data-center']] },
+        { id: '2026-04-21-emerald', date: '2026-04-21', tracks: ['region', 'money'],
+          title: 'Kiowa: IREN’s "Project Emerald" clears the incentive-district review committee',
+          text: '2,000 acres south of Kiowa near Kiowa Lake Road (Pittsburg County); PSO power, water from the City of Kiowa, construction from 2027 in two phases. The school, career-tech, health, library and county boards vote next.',
+          src: [['KJRH — Project Emerald moving forward', 'https://www.kjrh.com/news/local-news/project-emerald-ai-data-center-plan-in-pittsburg-county-moving-forward']], map: [34.7233, -95.9029, 12] },
+        { id: '2026-04-24-ble-piedmont', date: '2026-04-24', tracks: ['region', 'law'],
+          title: 'Piedmont: Beltline’s BLE Landholdings files a data-center PUD',
+          text: '321.3 acres in Sec 26 T15N R6W (Kingfisher County side of Piedmont), bounded by E 870 Rd, N 2920 Rd, County Line Rd and N 2910 Rd; a conceptual site plan follows on Jul 8.',
+          src: [['City of Piedmont — BLE Landholdings PUD', 'https://www.piedmont-ok.gov/DocumentCenter/View/983/Beltline-PUD-updated'], ['City of Piedmont — Data Center Transparency Portal', 'https://www.piedmont-ok.gov/323/Data-Center-Transparency-Portal']], map: [35.7476, -97.8074, 13] },
+        { id: '2026-05-06-coresci', date: '2026-05-06', tracks: ['region', 'power'],
+          title: 'Core Scientific plans 1.5 GW at Muskogee and agrees to buy Polaris',
+          text: 'Target 1.5 GW gross (~1.0 GW leasable) on ~250 acres; a 70 MW leased building due Q2 2026 and an 82.5 MW building from Q4 2027; Polaris DS brings 440 MW of gross power contracted with OG&E, closing expected Q3 2026.',
+          src: ['core_0506'], map: [35.69, -95.39, 13] },
+        { id: '2026-06-10-oklahoma-ai-ventures', date: '2026-06-10', tracks: ['region', 'power'],
+          title: 'Comstock and Jericho form Oklahoma AI Ventures for gas-powered data-center campuses',
+          text: '50/50 joint venture with 4,000+ acres secured in Pawnee and Noble counties, behind-the-meter natural-gas generation, targeting gigawatt-class campuses (SEC filing). No site is mapped.',
+          src: [['SEC — Comstock 8-K exhibit (Oklahoma AI Ventures)', 'https://www.sec.gov/Archives/edgar/data/0001299969/000162828026042075/jerichojvpr-finalfor8xk.htm']] }
       ]
     },
     {
@@ -462,7 +528,27 @@ window.TIMELINE = {
         { id: '2026-09-26-field', date: '2026-09-26', projects: ['anthem'], tracks: ['power'],
           title: 'Field observation: substation pad and line route',
           text: 'Gravel substation pad north of 21st St west of the turnpike; poles from near US-412 south along the east side of the turnpike, then west along 21st; two new poles south of the substation.',
-          src: ['field_aerial', 'field_ex3a'], map: [36.1348, -95.7383, 15] }
+          src: ['field_aerial', 'field_ex3a'], map: [36.1348, -95.7383, 15] },
+        { id: '2026-07-21-fluidstack', date: '2026-07-21', tracks: ['region'],
+          title: 'Fluidstack holds an open house on its Okmulgee County data center',
+          text: 'First phase by September 2027, the last by September 2028; first tenant Jane Street; closed-loop cooling and a 60 dB limit at the property line; not seeking local property-tax incentives. County commissioners approved the project (date not reported). No site location is published.',
+          src: [['KRMG — Fluidstack open house', 'https://krmg.com/2026/07/21/okmulgee-residents-raise-concerns-during-fluidstack-data-center-open-house/'], ['Okmulgee Data Center — project site', 'https://www.okmulgeefluidstack.io/'], ['OK Energy Today — what’s happening about data centers', 'https://okenergytoday.com/2026/08/whats-happening-about-data-centers/']] },
+        { id: '2026-08-31-host-digital', date: '2026-08-31', tracks: ['region'],
+          title: 'Host Digital signs a $1.25B, 15-year lease for a 43 MW northeast Oklahoma data center',
+          text: 'Take-or-pay lease with a large private cloud-infrastructure company, backstopped by an investment-grade US technology company; delivery in the first half of 2027 (parent Healthy Choice Wellness Corp). The city is not named.',
+          src: [['GlobeNewswire — Host Digital lease', 'https://www.globenewswire.com/news-release/2026/08/31/3353118/0/en/hcwc-announces-host-digital-secures-1-25-billion-15-year-ai-data-center-lease.html']] },
+        { id: '2026-09-02-aligned', date: '2026-09-02', tracks: ['region'],
+          title: 'Grady County calls a special meeting on Aligned Data Centers near Amber',
+          text: 'Aligned has acquired land near Amber; commissioners meet Sep 8 on the county’s response after neighbours raised water, noise, lighting and farmland concerns. Aligned says it uses closed-loop cooling.',
+          src: [['News 9 — Grady County special meeting', 'https://www.news9.com/data-centers-in-oklahoma/grady-county-commissioners-special-meeting-data-center-oklahoma']], map: [35.1602, -97.8821, 12] },
+        { id: '2026-09-08-thunderbird', date: '2026-09-08', tracks: ['region', 'power'],
+          title: 'Enid: "Project Thunderbird" announced with up to 3.3 GW of on-site power',
+          text: 'Plainsmen Holdings (four Enid natives): about 1,652 acres on four campuses in Enid, raw water from the new Kaw Lake pipeline, closed-loop cooling. OK Energy Today reports 1,735 acres.',
+          src: [['Enid News & Eagle — Project Thunderbird', 'https://www.enidnews.com/news/local_news/enid-natives-announce-local-data-center-power-generation-project/article_0465bc43-e183-4d3a-b602-9afd55ff300e.html'], ['OK Energy Today — Enid campus', 'https://okenergytoday.com/2026/09/massive-data-center-campus-unveiled-for-enid/']], map: [36.4067, -97.8699, 12] },
+        { id: '2026-09-22-open-sky', date: '2026-09-22', tracks: ['region', 'law'],
+          title: 'Piedmont: Cloverleaf’s "Project Open Sky" PUD revised',
+          text: 'About 633 acres in Sec 1 T14N R6W and Sec 6 T14N R5W (Canadian County), applicant Cimarron ProjectCo / Cimarron DevCo; city water capped at 75,000 gallons a day, no wells. The site is beside the Mathewson substation, the west end of the new Mathewson–Redbud 345 kV line (in service 2027).',
+          src: ['pied_open', 'pied_portal', 'okwatch_345'], map: [35.712, -97.795, 13] }
       ]
     }
   ]
