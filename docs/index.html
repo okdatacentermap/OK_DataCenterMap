@@ -1017,6 +1017,8 @@ setMode('all');
   </ul>
   <h3>Not advice · independence</h3>
   <p>Nothing here is legal, financial, engineering, environmental or real-estate advice. Provided “as is”, without warranty. Not affiliated with or endorsed by any government body, utility, developer or company named here; names and trademarks belong to their owners.</p>
+  <h3>Terms of use</h3>
+  <p>By using this site you agree to this Disclaimer and the License below. The compiler is not responsible for errors, omissions or delays, or for any loss arising from use of the information. You are responsible for using it only as applicable law allows. The compilation is <b>not for sale or resale</b>; Oklahoma law provides that the county clerk’s land-description tract index “shall not be copied or mechanically reproduced for the purpose of sale of the information” (51 O.S. § 24A.5(5)).</p>
   <h3>Privacy</h3>
   <p>Private individuals’ names are replaced with a generic description; companies, public bodies and officials acting in their role are named. Links to the public records stay so every fact can be checked.</p>
   <h3>Third-party material</h3>
@@ -1027,7 +1029,7 @@ setMode('all');
   <p><a href="https://github.com/okdatacentermap/OK_DataCenterMap/issues" target="_blank" rel="noopener">Open an issue on GitHub</a> with the item, the correction and a source. Full text: <a href="https://github.com/okdatacentermap/OK_DataCenterMap/blob/main/DISCLAIMER.md" target="_blank" rel="noopener">Disclaimer</a>.</p>
   <p><button type="button" data-close>Close</button></p>
 </div></div>
-<div id="fv" role="region" aria-label="Notice"><div>This is an independent compilation of public records, not an official source. Every item links to its source; map positions are approximate. <a onclick="openAbout()">About · Disclaimer · License</a></div><button type="button" id="fvOk">OK</button></div>
+<div id="fv" role="region" aria-label="Notice"><div>This is an independent compilation of public records, not an official source. Every item links to its source; map positions are approximate. Provided “as is”: the compiler is not responsible for errors, omissions or any use made of this information. <b>By using this site you agree to its Disclaimer and License</b> and to use the information only as applicable law allows. Not for sale or resale; Oklahoma law bars copying county land-record indexes to sell the information (51 O.S. § 24A.5(5)). <a onclick="openAbout()">About · Disclaimer · License</a></div><button type="button" id="fvOk">OK</button></div>
 <script>
 // About dialog + first-visit notice (remembered in this browser only)
 function openAbout(){ const d = document.getElementById('about'); d.classList.add('open'); const b = d.querySelector('[data-close]'); if (b) b.focus(); }
@@ -1036,7 +1038,7 @@ function openAbout(){ const d = document.getElementById('about'); d.classList.ad
   d.addEventListener('click', e => { if (e.target === d || e.target.hasAttribute('data-close')) close(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && d.classList.contains('open')) { e.stopImmediatePropagation(); close(); } }, true);
   const a = document.getElementById('aboutLink'); a.onclick = openAbout; a.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openAbout(); } };
-  const K = 'okdc-notice-v1', fv = document.getElementById('fv');
+  const K = 'okdc-notice-v2', fv = document.getElementById('fv');
   let seen = false; try { seen = localStorage.getItem(K) === '1'; } catch (e) {}
   if (!seen) fv.classList.add('show');
   document.getElementById('fvOk').onclick = () => { fv.classList.remove('show'); try { localStorage.setItem(K, '1'); } catch (e) {} };

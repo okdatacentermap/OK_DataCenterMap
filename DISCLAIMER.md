@@ -23,6 +23,16 @@ industrial projects in northeast Oklahoma, made for public information. It is no
 Nothing here is legal, financial, engineering, environmental or real-estate advice. The site is provided "as is",
 without warranty of any kind, and the compiler is not liable for any use made of it.
 
+## Terms of use
+
+By using this site you agree to this Disclaimer and to the licenses below. The compiler is not responsible for errors,
+omissions or delays, or for any loss or damage arising from use of the information. You are responsible for using it
+only as applicable law allows.
+
+The compilation is not for sale or resale. Oklahoma law provides that the county clerk's land-description tract index of
+recorded real-property instruments "shall not be copied or mechanically reproduced for the purpose of sale of the
+information" (51 O.S. § 24A.5(5)).
+
 ## Independence
 
 The site is not affiliated with, sponsored by or endorsed by any government body, utility, developer or company named
