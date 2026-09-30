@@ -1,0 +1,5 @@
+/tools/
+*.local.*
+Thumbs.db
+desktop.ini
+.DS_Store
