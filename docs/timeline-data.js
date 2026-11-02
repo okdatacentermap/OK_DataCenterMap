@@ -10,7 +10,7 @@
 //   projects  optional list of project ids when the text does not name the project; otherwise filed by keywords
 //   topics    optional list of topic ids; otherwise filed by tracks + keywords
 window.TIMELINE = {
-  updated: '2026-09-30',
+  updated: '2026-11-01',
   tracks: {
     anthem: 'Project Anthem',
     mpd: 'MPD-6 / Fair Oaks',
@@ -213,6 +213,7 @@ window.TIMELINE = {
       id: 'g2025', label: '2025', title: 'Site work begins, still unnamed',
       summary: 'Fifteen months before Meta is named, the substation, an off-site contractor and a sewer interceptor all get construction permits, and the Planning Commission fast-tracks the substation. Power-line easements are recorded north and south of the site. A first attempt at a phase 2 rezoning is withdrawn, and the MPD-6 hearing is postponed. Regionally, Beale Infrastructure’s "Project Clydesdale" is approved near Owasso and Google announces $9B for Oklahoma.',
       events: [
+        {"id":"2025-11-muscogee-council","date":"2025-11","tracks":["region","law"],"title":"Muscogee (Creek) National Council rejects a data center at Looped Square Ranch","text":"The measure would have developed a data center on Nation land used for tribal food sovereignty (Turtle Talk summary of tribal actions).","src":[["Turtle Talk — Data centers in Indian Country (2026-08-20)","https://turtletalk.blog/2026/08/20/data-centers-in-indian-country/"]]},
         { id: '2025-01-02-gatusi', date: '2025-01-02', tracks: ['power', 'anthem'],
           title: 'Stormwater permit: Gatusi Substation',
           text: 'ODEQ OKR1036178 (AEP/PSO): 0.9 mi south of E 11th St, 0.3 mi west of the turnpike, on the north side of 21st St.',
@@ -302,14 +303,20 @@ window.TIMELINE = {
           src: [['OK Energy Today — construction gets go-ahead for Stillwater data center', 'https://www.okenergytoday.com/2025/11/construction-gets-go-ahead-for-stillwater-data-center/']], map: [36.1745, -97.043, 13] },
         { id: '2025-11-20-google-muskogee', date: '2025-11-20', tracks: ['region', 'power'],
           title: 'Google announces two Muskogee County campuses, near Council Hill and Summit',
-          text: 'Part of its $9B Oklahoma plan, with 600 MW of new solar under long-term agreements with NextEra (Rush Springs Solar, Stephens County; High Spring Solar, Muskogee County) and $1M for Muskogee schools, small businesses and trades training.',
-          src: [['Port Muskogee — Google announces two campuses', 'https://www.portmuskogee.com/google-announces-two-data-center-campuses-in-muskogee-county-oklahoma_news/'], ['KRMG — officials share details', 'https://www.krmg.com/2025/11/25/officials-share-new-details-about-two-google-data-centers-coming-to-muskogee-county/']] }
+          text: 'KJRH: one site "south and west of the Dal Tile plant" in Muskogee, the other "about two miles north and east of the small community of Council Hill". Part of its $9B Oklahoma plan, with 600 MW of new solar under long-term agreements with NextEra (Rush Springs Solar, Stephens County; High Spring Solar, Muskogee County) and $1M for Muskogee schools, small businesses and trades training.',
+          src: [['Port Muskogee — Google announces two campuses', 'https://www.portmuskogee.com/google-announces-two-data-center-campuses-in-muskogee-county-oklahoma_news/'], ['KRMG — officials share details', 'https://www.krmg.com/2025/11/25/officials-share-new-details-about-two-google-data-centers-coming-to-muskogee-county/'], 'kjrh_gmusk'] },
+        { id: '2025-11-21-scissortail', date: '2025-11-21', tracks: ['region'],
+          title: 'Muskogee: "Project Scissortail" data center under construction',
+          text: 'KTUL: across the street from the operating Polaris site "is the under-construction Project Scissortail data center". ODEQ lists "Scissortail – Muskogee" (Whiting-Turner, since Feb 2025) and, from Oct 2026, "Scissortail Offsite Improvements" (Nabholz). The owner is not named.',
+          src: ['ktul_musk', 'odeq_in'], map: [35.6908, -95.3999, 14] }
       ]
     },
     {
       id: 'g2026q1', label: 'Jan–Mar 2026', title: 'MPD-6 passes, phase 2 stalls, Tulsa pauses',
       summary: 'Fortis gets its building-site permit; the 6,287-acre MPD-6 is approved without naming data centers, although its rules allow them by right in two area types. Staff recommend denying the phase-2 expansion and the applicant withdraws it. The Council imposes a data-center moratorium that exempts Anthem. Around the region, Beale’s Coweta project dies, Sand Springs approves a Google site and Claremore’s "Project Mustang" surfaces.',
       events: [
+        {"id":"2026-02-27-polaris-water","date":"2026-02-27","tracks":["region","env"],"title":"Polaris: OSHA and state environmental violations; about 2 million gallons of city water a day","text":"Streetlight reports workplace-safety and state environmental violations at the Polaris bitcoin-mining data center in Muskogee; a city official told the council in June 2025 that it used about 6% of Muskogee’s water supply, about 2 million gallons a day, paying the city $1.2 million a year for water. Polaris sued the city after the council annexed its industrial-park land.","src":[["Streetlight — A Muskogee bitcoin mining facility that received OSHA fines (2026-02-27)","https://streetlightnews.org/data-centers/"]],"map":[35.6876,-95.3916,14]},
+        {"id":"2026-03-07-seminole","date":"2026-03-07","tracks":["region","law"],"title":"Seminole Nation adopts a data-center moratorium","text":"The Tribal Council unanimously votes a moratorium on generative-AI and hyperscale data-center development within its jurisdiction, also barring discussions with any data-center developer during the moratorium.","src":[["Turtle Talk — Data centers in Indian Country (2026-08-20)","https://turtletalk.blog/2026/08/20/data-centers-in-indian-country/"]]},
         { id: '2026-01-07-mpd-cont', date: '2026-01-07', tracks: ['mpd'],
           title: 'MPD-6 continued again, to Feb 4',
           text: 'Continued at the applicant\u2019s request, citing estate matters. Public commenters raised groundwater and mine-safety concerns, and one owner objected to his parcel being included. Vote 10-0-1.',
@@ -386,6 +393,8 @@ window.TIMELINE = {
       id: 'g2026q2', label: 'Apr–Jun 2026', title: 'Meta goes public, and buys the phase-2 land anyway',
       summary: 'On April 21 Meta announces its Tulsa data center and breaks ground. Within days its entity buys the Section 7 land that was in the withdrawn phase-2 rezoning. Fortis’s accelerated permit and a plat extension to August 2027 follow. Claremore approves Mustang and Broken Arrow pauses data centers.',
       events: [
+        {"id":"2026-04-30-google-oge","date":"2026-04-30","tracks":["region","power"],"title":"Google announces an energy agreement with OG&E","text":"Reported by Mvskoke Media in its coverage of Google’s two Muskogee County data centers; no construction timeline has been published.","src":[["Mvskoke Media — Muskogee residents learn how to fight data centers (2026-10-23)","https://www.mvskokemedia.com/muskogee-residents-learn-how-to-fight-data-centers/"]]},
+        {"id":"2026-06-26-pso-settlement","date":"2026-06-26","tracks":["power","law"],"title":"PSO rate case settled: residential increase cut from $25 to $2.45 a month","text":"PSO filed in January for a $25 residential increase; a June 26 settlement with the Attorney General and others lowered it to $2.45, with an interim $11 charge while the Corporation Commission decides. Under the Ratepayer Protection Act (effective July 1), PSO and OG&E must set separate terms for large customers such as data centers.","src":[["Tulsa Flyer — PSO rate increase and your electric bill (2026-07-31)","https://tulsaflyer.org/2026/07/31/your-money/post/pso-rate-increase-electricity-bills/"]]},
         { id: '2026-04-23-deq-smelter', date: '2026-04-23', tracks: ['industry', 'law'],
           title: 'ODEQ holds a permit-process meeting on the Inola smelter',
           text: 'The smelter needs a Prevention of Significant Deterioration (PSD) air construction permit, the level required for major new sources. ODEQ lists technical meetings on pollution controls (BACT) and dispersion modeling, and a public meeting on the draft permit, as still to be scheduled. Water-discharge, stormwater and waste permits would follow as separate applications.',
@@ -467,6 +476,9 @@ window.TIMELINE = {
       id: 'g2026q3', label: 'Jul–Sep 2026', title: 'Lines go up; Google steps forward; Lambda picks Chouteau',
       summary: 'Google is confirmed behind Clydesdale and buys the Sand Springs site through Horizon Development for $126M. In Tulsa, the moratorium sees its first appeal, and the southern Anthem transmission line is pending a permit, with new poles already standing south of the substation. In Mayes County, GRDA brings a 426 MW gas unit online and Lambda announces a second data center at MidAmerica Industrial Park.',
       events: [
+        {"id":"2026-08-05-cherokee","date":"2026-08-05","tracks":["region","law"],"title":"Cherokee Nation bans hyperscale data centers on tribally owned and trust land","text":"After the Principal Chief’s Data Center Task Force report (energy, water, air, infrastructure and cultural resources), Chief Hoskin bans hyperscale data-center development on tribally owned and trust lands and asks developers to consult early.","src":[["Cherokee Phoenix — Cherokee Nation issues Data Center Task Force report, new policy actions","https://www.cherokeephoenix.org/news/cherokee-nation-issues-data-center-task-force-report-new-policy-actions/article_9fe8dc40-2907-4c00-8606-33d735ffc51f.html"],["Turtle Talk — Data centers in Indian Country (2026-08-20)","https://turtletalk.blog/2026/08/20/data-centers-in-indian-country/"]]},
+        {"id":"2026-08-10-okmulgee-petition","date":"2026-08-10","tracks":["region","law"],"title":"Okmulgee County moratorium petition launched against the Fluidstack data center","text":"Organizers seek 2,300 county signatures. Mvskoke Media reports the Fluidstack site is planned outside Okmulgee city limits, near the Deep Fork Wildlife Refuge; its first phase is due by September 2027.","src":[["Mvskoke Media — Opposition to Okmulgee data center gains momentum (2026-08-14)","https://www.mvskokemedia.com/opposition-to-okmulgee-data-center-gains-momentum/"]]},
+        {"id":"2026-08-inola-nepa","date":"2026-08","tracks":["industry","law"],"title":"Inola residents sue in federal court over the smelter (NEPA)","text":"Four residents ask the Northern District of Oklahoma to stop federal funding until an environmental review under the National Environmental Policy Act; separately, a Rogers County grand-jury petition was submitted Aug 27. KJRH reports the developers aimed to break ground in October.","src":[["KJRH — Inola residents file federal suit over aluminum smelter plans","https://www.kjrh.com/news/local-news/inola-residents-file-federal-suit-over-aluminum-smelter-plans"]]},
         { id: '2026-09-15-inola', date: '2026-09-15', tracks: ['industry'],
           title: 'Inola extends its smelter moratorium; ban goes to an April vote',
           text: 'The town council unanimously extends the moratorium (first enacted in late June) to April 7, 2027, and puts a citizen petition banning primary aluminum smelting in town limits on that ballot. On Sep 18 the Tulsa Ports board approves legal action over the petition.',
@@ -511,8 +523,12 @@ window.TIMELINE = {
           src: [['Citizen Portal \u2014 exception granted (AI-generated summary)', 'https://citizenportal.ai/articles/9787007/oklahoma/tulsa-county/tulsa/city-council-meetings/tulsa-council-grants-exception-to-datacenter-moratorium-for-ttwenty-conversion'], 'official/CityCouncil/2026-09-02_CC_T20-Mining-Moratorium-Exception-Appeal_doc6768.pdf'] },
         { id: '2026-09-08-southline', date: '2026-09-08', tracks: ['power'],
           title: '"Anthem Southern T-Line Clearing" pending',
-          text: 'ODEQ OKR1038161 (AEP/PSO), "linear project with no physical address". The route beyond the first poles is not public.',
-          src: ['odeq_pend'], map: [36.133, -95.7385, 16] },
+          text: 'ODEQ OKR1038161 (AEP/PSO), "linear project with no physical address". The route beyond the first poles is not given.',
+          src: ['odeq_pend_0908'], map: [36.133, -95.7385, 16] },
+        { id: '2026-09-29-southline', date: '2026-09-29', tracks: ['power'],
+          title: 'Southern Anthem line permitted: 21st St south to 41st St',
+          text: 'ODEQ OKR1038161 "Anthem Southern T-Line Clearing" (AEP/PSO) takes effect, now described as "Begin at 21st St and Creek Tpke S extend South to E 41st St".',
+          src: ['odeq_in'], map: [36.119, -95.7378, 13] },
         { id: '2026-09-16-grec4', date: '2026-09-16', tracks: ['power', 'region'],
           title: 'GRDA\u2019s new 426 MW gas unit enters service at Chouteau',
           text: 'Grand River Energy Center Unit 4, beside the MidAmerica Industrial Park, which GRDA supplies (including Google\u2019s Pryor campus).',
@@ -549,6 +565,13 @@ window.TIMELINE = {
           title: 'Piedmont: Cloverleaf’s "Project Open Sky" PUD revised',
           text: 'About 633 acres in Sec 1 T14N R6W and Sec 6 T14N R5W (Canadian County), applicant Cimarron ProjectCo / Cimarron DevCo; city water capped at 75,000 gallons a day, no wells. The site is beside the Mathewson substation, the west end of the new Mathewson–Redbud 345 kV line (in service 2027).',
           src: ['pied_open', 'pied_portal', 'okwatch_345'], map: [35.712, -97.795, 13] }
+      ]
+    },
+    {
+      id: 'g2026q4', label: 'Oct–Nov 2026', title: 'Permits catch up; opposition organizes',
+      summary: 'ODEQ’s October list puts the southern Anthem line in effect, from 21st St south to 41st St, and adds a Fortis yard on 31st St. In Muskogee, a second permit appears for the "Project Scissortail" data center, and residents hold a town hall on the Google projects.',
+      events: [
+        {"id":"2026-10-15-muskogee-townhall","date":"2026-10-15","tracks":["region"],"title":"Muskogee data-center town hall","text":"Organizers raise transparency concerns about the two Google data centers in Muskogee County (at Summit Hill and Council Hill, per Mvskoke Media); no construction timeline has been published.","src":[["Mvskoke Media — Muskogee residents learn how to fight data centers (2026-10-23)","https://www.mvskokemedia.com/muskogee-residents-learn-how-to-fight-data-centers/"]]}
       ]
     }
   ]
