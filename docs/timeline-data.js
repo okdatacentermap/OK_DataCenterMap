@@ -10,7 +10,7 @@
 //   projects  optional list of project ids when the text does not name the project; otherwise filed by keywords
 //   topics    optional list of topic ids; otherwise filed by tracks + keywords
 window.TIMELINE = {
-  updated: '2026-11-01',
+  updated: '2026-11-02',
   tracks: {
     anthem: 'Project Anthem',
     mpd: 'MPD-6 / Fair Oaks',
@@ -232,7 +232,7 @@ window.TIMELINE = {
           src: ['official/CityCouncil/2025-03-26_CC_Spunky-Creek-East-Branch-C1_Sewer-Easement_Fair-Oaks-Ranch_Parcel4A_doc3998.pdf', 'official/CityCouncil/2025-03-26_CC_Spunky-Creek-East-Branch-C1_Sewer-Easement_Fair-Oaks-Ranch_Parcel8A_doc3999.pdf', 'official/CityCouncil/2025-04-02_CC_Spunky-Creek-East-Branch-C1_Sewer-Easement_Fair-Oaks-Ranch_Parcel10A_doc4000.pdf', 'official/CityCouncil/2025-04-16_CC_Spunky-Creek-East-Branch-C1_Sewer-Easement_Youth-camp-owner_Parcel3A_doc4077.pdf', 'official/CityCouncil/2025-04-16_CC_Spunky-Creek-East-Branch-C1_Sewer-Easement_Youth-camp-owner_Parcel9A_doc4078.pdf', 'official/CityCouncil/2025-04-16_CC_Spunky-Creek-East-Branch-C1_Sewer-Easement_Private-Trust_Parcel2A_doc4076.pdf', 'official/CityCouncil/2025-04-30_CC_Spunky-Creek-East-Branch-C1_Access-Easement_Youth-camp-owner_Parcel3B_doc4126.pdf', 'official/CityCouncil/2025-09-17_CC_Spunky-Creek-East-Branch-C1_Sewer-Easement_Youth-camp-owner_Parcel1A_doc5675.pdf'], map: [36.1425, -95.7455, 15] },
         { id: '2025-03-19-easement', date: '2025-03-19', tracks: ['power'],
           title: 'Atmoss grants PSO a right-of-way easement',
-          text: 'Across Section 8 SW and W½ SE; corrected Oct 2, 2025. Sewer easements for the Spunky Creek interceptor are signed by Fair Oaks Ranch and neighbors that spring.',
+          text: 'Across Section 8 SW and W½ SE (Clerk 2025-3480); corrected Oct 2, 2025 (2025-14007). Sewer easements for the Spunky Creek interceptor are signed by Fair Oaks Ranch and neighbors that spring.',
           src: ['clerk'] },
         { id: '2025-05-ega', date: '2025-05', tracks: ['industry', 'power'],
           title: 'EGA plans a $4B aluminum smelter at the Tulsa Port of Inola',
@@ -248,8 +248,8 @@ window.TIMELINE = {
           src: [['Google — Oklahoma data centers', 'https://datacenters.google/locations/oklahoma/']] },
         { id: '2025-08-25-pso-row', date: '2025-08-25', tracks: ['power'],
           title: 'Fair Oaks Ranch grants PSO line easements north and south',
-          text: 'Recorded Aug 25 – Oct 7: Sec 17 south of 21st (the southern line) and Sections 4, 5 and 8 (the northern line).',
-          src: ['clerk'] },
+          text: 'Recorded Aug 25 – Oct 7 at the Wagoner County Clerk. South of 21st St, in Section 17: 2025-11837, 2025-12790, 2025-14006 and 2025-14010 (NW¼ NE¼) and 2025-14005 (NE¼). North: 2025-11836 and 2025-14004 (Section 8), 2025-11834 (Section 5) and 2025-14280 (Section 4 NW¼). Rob Wal LLC grants PSO easements in Section 5 the same days (2025-11833, 2025-11835, 2025-14003). The index names the quarter-sections, not the route.',
+          src: ['clerk'], map: [36.14, -95.738, 14] },
         { id: '2025-09-23-z7837', date: '2025-09-23', tracks: ['anthem'],
           title: 'First phase-2 rezoning (Z-7837 / CPA-124) withdrawn',
           text: 'AG → IL for properties east and northeast of 21st × 193rd; withdrawn a week before its hearing. Refiled later as Z-7851.' },
@@ -525,6 +525,10 @@ window.TIMELINE = {
           title: '"Anthem Southern T-Line Clearing" pending',
           text: 'ODEQ OKR1038161 (AEP/PSO), "linear project with no physical address". The route beyond the first poles is not given.',
           src: ['odeq_pend_0908'], map: [36.133, -95.7385, 16] },
+        { id: '2026-09-22-pso-lis', date: '2026-09-22', tracks: ['power'],
+          title: 'PSO records a lis pendens on land in Sections 22–23',
+          text: 'Wagoner County Clerk 2026-15054: a notice of a pending lawsuit filed by PSO, naming a private landowner (see the Clerk record) and the Wagoner County Board of County Commissioners, for land in the E½ SE¼ of Section 22 and in Section 23 (T19N R15E), east of 193rd between 31st and 41st. The index does not say what the suit is for.',
+          src: ['clerk'], map: [36.11, -95.69, 14] },
         { id: '2026-09-29-southline', date: '2026-09-29', tracks: ['power'],
           title: 'Southern Anthem line permitted: 21st St south to 41st St',
           text: 'ODEQ OKR1038161 "Anthem Southern T-Line Clearing" (AEP/PSO) takes effect, now described as "Begin at 21st St and Creek Tpke S extend South to E 41st St".',
