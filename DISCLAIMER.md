@@ -46,8 +46,10 @@ so that every fact can be checked.
 
 ## Third-party material
 
-- **Company renderings** (Meta's Project Anthem images) are © Meta Platforms, Inc. They are shown, credited, and fitted
-  to the ground only for commentary and news reporting about a public land-use matter. They will be removed on request
+- **Company renderings and site plans** belong to their owners: Meta's Project Anthem images (© Meta Platforms, Inc.),
+  and developer renderings and plans for other projects (Beale Infrastructure, Kimley-Horn, Oklahoma Primary Aluminum,
+  Core Scientific, MidAmerica Industrial Park), each credited where shown. They are shown, credited, and some are fitted
+  to the ground, only for commentary and news reporting about public land-use matters. They will be removed on request
   from the rights holder.
 - **News articles** are linked, not republished; they belong to their publishers.
 - **Consultant and agency exhibits** belong to their authors; government records are public under the Oklahoma Open

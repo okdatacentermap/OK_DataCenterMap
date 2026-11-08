@@ -15,6 +15,6 @@ for non-commercial purposes only, and you must share adaptations under the same 
 ## Not covered
 
 - Government records (city, county, state and federal documents) — public records, not restricted by this license.
-- Third-party material: company renderings (© Meta Platforms, Inc.), consultant exhibits, news articles, aerial
-  imagery. These belong to their owners; see [DISCLAIMER.md](DISCLAIMER.md).
+- Third-party material: company renderings and site plans (© Meta Platforms, Inc. and the other developers credited
+  where shown), consultant exhibits, news articles, aerial imagery. These belong to their owners; see [DISCLAIMER.md](DISCLAIMER.md).
 - The site's code — see [LICENSE-CODE.md](LICENSE-CODE.md).
