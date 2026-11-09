@@ -7,6 +7,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="projects.js"></script>
+<script>
+// side panel starts collapsed on phones; on larger screens it keeps the viewer's last choice (set before first paint)
+(function () { var h = innerWidth <= 700; try { if (!h) h = localStorage.getItem('okdc-side-hidden') === '1'; } catch (e) {} if (h) document.documentElement.classList.add('side-hidden'); })();
+</script>
 <style>
   :root { --bg:#f6f6f4; --panel:#ffffff; --ink:#1d1d1b; --muted:#6b6b66; --line:#d9d9d4; --accent:#b8421f; }
   @media (prefers-color-scheme: dark) { :root { --bg:#161615; --panel:#20201e; --ink:#ecebe6; --muted:#a3a29b; --line:#3a3a36; --accent:#f07b52; } }
@@ -47,12 +51,19 @@
   .handle { width:14px; height:14px; margin:-7px 0 0 -7px; border-radius:50%; background:var(--accent); border:2px solid #fff; box-shadow:0 0 3px #000; }
   .handle span { position:absolute; left:14px; top:-4px; color:#fff; font:bold 11px system-ui; text-shadow:0 0 3px #000; white-space:nowrap; }
   .warp { position:absolute; left:0; top:0; transform-origin:0 0; pointer-events:none; }
+  .warp.wx { display:none; }
   .sw { display:inline-block; width:11px; height:11px; margin-right:2px; border:2px solid; flex:none; }
   .lbl { background:rgba(0,0,0,.6); color:#fff; border:0; box-shadow:none; font:600 11px/1.25 system-ui; padding:2px 5px; text-align:center; white-space:nowrap; }
   .lbl:before { display:none; }
   .lbl.big { font-size:12.5px; background:rgba(0,0,0,.7); }
   .pinhint { font-size:10.5px; color:#888; margin-top:3px; }
   .pin .leaflet-popup-content { font-size:12.5px; line-height:1.4; margin:10px 12px; max-height:60vh; overflow:auto; }
+  /* popups and hover cards never wider than the screen (2026-11-09) */
+  .pin .leaflet-popup-content { max-width:min(400px, calc(100vw - 72px)); overflow-wrap:break-word; max-height:calc(100dvh - 120px); }
+  .pin .leaflet-popup-content img, .pin .leaflet-popup-content table, .pin .leaflet-popup-content video { max-width:100%; height:auto; }
+  .pin .leaflet-popup-content pre { white-space:pre-wrap; }
+  .leaflet-tooltip:not(.lbl) { width:max-content; white-space:normal; max-width:min(320px, calc(100vw - 40px)); overflow-wrap:break-word; }
+  .leaflet-popup { max-width:calc(100vw - 16px); }
   .pinhead { font-size:10.5px; color:#b8421f; font-weight:600; margin-bottom:4px; }
   details.facts { margin-top:8px; border-top:1px solid #ddd; padding-top:6px; }
   details.facts summary { cursor:pointer; font-weight:600; }
@@ -82,10 +93,18 @@
   #about ul { margin:0 0 6px; padding-left:18px; }
   #about a { color:var(--accent); }
   #about .close { float:right; }
-  #fv { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:5500; max-width:min(720px, calc(100vw - 32px)); background:var(--panel); color:var(--ink);
-    border:1px solid var(--line); border-radius:10px; box-shadow:0 6px 24px rgba(0,0,0,.25); padding:12px 14px; font:13px/1.45 system-ui,sans-serif; display:none; gap:12px; align-items:center; }
+  #fv { position:fixed; left:16px; right:16px; bottom:18px; margin:0 auto; z-index:5500; max-width:720px; box-sizing:border-box; background:var(--panel); color:var(--ink);
+    border:1px solid var(--line); border-radius:10px; box-shadow:0 6px 24px rgba(0,0,0,.25); padding:12px 14px; font:13px/1.45 system-ui,sans-serif; display:none; gap:12px; align-items:center;
+    max-height:calc(100vh - 36px); max-height:calc(100dvh - 36px); overflow:auto; }
   #fv.show { display:flex; }
   #fv button { flex:none; }
+  @media (max-width:560px) {
+    #fv { left:10px; right:10px; bottom:10px; flex-direction:column; align-items:stretch; gap:10px; padding:12px; font-size:13.5px; line-height:1.5; }
+    #fv button { padding:9px; font-weight:600; }
+    #about { padding:10px; }
+    #about .card { padding:14px 16px; max-height:calc(100vh - 20px); max-height:calc(100dvh - 20px); font-size:14.5px; }
+    #about .close { padding:8px 12px; }
+  }
   #pv { position:fixed; inset:0; z-index:5000; background:rgba(0,0,0,.72); display:none; align-items:center; justify-content:center; }
   #pv.open { display:flex; }
   #pv figure { margin:0; width:75vw; max-width:75vw; display:flex; flex-direction:column; align-items:center; }
@@ -100,10 +119,18 @@
   #pv:fullscreen, #pv.fs { background:#000; }
   #pv:fullscreen figure, #pv.fs figure { width:100vw; max-width:100vw; }
   #pv:fullscreen img, #pv.fs img { max-width:100vw; max-height:calc(100vh - 70px); border-radius:0; }
-  @media (max-width:700px) { #wrap { flex-direction:column; } #side { width:auto !important; height:45%; border-right:0; border-bottom:1px solid var(--line); } #grip { display:none; } }
+  @media (max-width:700px) { #wrap { flex-direction:column; } #side { width:auto !important; height:45%; border-right:0; border-bottom:1px solid var(--line); } #grip { display:none; }
+    .leaflet-control-attribution { max-width:calc(100vw - 140px); } }
+  /* menu button: collapses the side panel (layers, filters, Map | Timeline switch) so the map or timeline gets the whole screen */
+  html.side-hidden #side, html.side-hidden #grip { display:none; }
+  #menuBtn { position:fixed; left:12px; bottom:calc(12px + env(safe-area-inset-bottom, 0px)); z-index:2000; height:48px; min-width:48px; padding:0 16px; box-sizing:border-box;
+    display:flex; align-items:center; justify-content:center; gap:8px; border-radius:24px; border:1px solid var(--line); background:var(--panel); color:var(--ink);
+    font:600 15px system-ui,-apple-system,sans-serif; box-shadow:0 2px 10px rgba(0,0,0,.35); cursor:pointer; touch-action:manipulation; }
+  #menuBtn .ic { font-size:20px; line-height:1; }
 </style>
 </head>
 <body>
+<button type="button" id="menuBtn" aria-controls="side" aria-expanded="true" aria-label="Menu"><span class="ic">☰</span><span class="tx">Menu</span></button>
 <div id="wrap">
   <div id="side">
     <h1>Fair Oaks / Project Anthem — map</h1>
@@ -504,7 +531,10 @@ LAYERS.forEach(l => { Object.assign(l, {on:true, op:1, subs:[]}); l.panes = (l.p
 const P = gid => 'g_' + gid;                     // a group's main vector pane
 const SHOW = {rend:true, sheet:false};          // image items (renderings, site-plan sheet) are panes, not vector layers
 const lblPane = map.createPane('p_lbl'); lblPane.style.zIndex = 640;   // above all layers, below Leaflet's hover tooltips (650)
-const R_ = n => L.svg({pane:n});
+// One SVG renderer per pane, shared by every layer drawn there. A new renderer per layer made 133 screen-sized SVG
+// layers; on a 3× iPhone each needs ~9 MB of graphics memory and every pan redraws them all, which killed the tab.
+const RENDERERS = {};
+const R_ = n => RENDERERS[n] || (RENDERERS[n] = L.svg({pane:n}));
 const byId = id => LAYERS.find(l => l.id === id);
 
 // ---------- hover card → click to pin; pinned cards carry a "Facts & sources" dropdown ----------
@@ -546,12 +576,14 @@ function bindInfo(lyr, html, keys, extra, pinMore){
     L.DomEvent.stopPropagation(e);
     const id = L.stamp(lyr);
     if (pins.has(id)) { map.closePopup(pins.get(id)); return; }
-    const pop = L.popup({autoClose:false, closeOnClick:false, maxWidth:400, className:'pin'}).setLatLng(e.latlng)
+    const pop = L.popup({autoClose:false, closeOnClick:false, maxWidth:Math.max(200, Math.min(400, innerWidth - 72)), autoPanPaddingTopLeft:[12,60], autoPanPaddingBottomRight:[12,80], className:'pin'}).setLatLng(e.latlng)
       .setContent('<div class="pinhead">Pinned — click the shape again or ✕ to unpin</div>' + html + (pinMore || '') + photoStrip(ph) + factsHtml(keys, extra));
     pop.on('remove', () => pins.delete(id));
     pins.set(id, pop); pop.openOn(map); lyr.closeTooltip();
     // every link in a pinned card opens in a new tab (Leaflet's own ✕ excepted); field photos still open in the viewer
     pop.getElement().querySelectorAll('a[href]:not(.leaflet-popup-close-button)').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
+    // opening Facts & sources makes the card taller: pan it back fully into view
+    pop.getElement().addEventListener('toggle', () => setTimeout(() => { if (pop._adjustPan) pop._adjustPan(); }, 30), true);
   });
 }
 
@@ -851,11 +883,30 @@ function mmm(a,b){const c=[];for(let i=0;i<3;i++)for(let j=0;j<3;j++){let s=0;fo
 function mmv(m,v){return [m[0]*v[0]+m[1]*v[1]+m[2]*v[2], m[3]*v[0]+m[4]*v[1]+m[5]*v[2], m[6]*v[0]+m[7]*v[1]+m[8]*v[2]];}
 function basis(p){const m=[p[0][0],p[1][0],p[2][0], p[0][1],p[1][1],p[2][1], 1,1,1]; const v=mmv(adj(m),[p[3][0],p[3][1],1]); return mmm(m,[v[0],0,0, 0,v[1],0, 0,0,v[2]]);}
 function proj(src,dst){const t=mmm(basis(dst),adj(basis(src))); for(let i=0;i<9;i++)t[i]/=t[8]; return t;}
+// A warped image is a full-size GPU layer whatever its on-screen size, so drop it while it is off-screen or too
+// small to read (phones, Safari especially, run out of graphics memory and reload the tab when zoomed out).
+const WARP_MIN_PX = 120, WARP_MARGIN = 200;
 function warp(el, src, cornersLatLng){
   if (!el.naturalWidth) return;
   const dst = cornersLatLng.map(c => { const p = map.latLngToLayerPoint(c); return [p.x, p.y]; });
-  const t = proj(src, dst);
-  el.style.width = el.naturalWidth+'px'; el.style.height = el.naturalHeight+'px';
+  const xs = dst.map(d => d[0]), ys = dst.map(d => d[1]);
+  const v0 = map.containerPointToLayerPoint([0, 0]), sz = map.getSize();
+  const tiny = Math.max(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys)) < WARP_MIN_PX;
+  const off = Math.max(...xs) < v0.x - WARP_MARGIN || Math.min(...xs) > v0.x + sz.x + WARP_MARGIN ||
+              Math.max(...ys) < v0.y - WARP_MARGIN || Math.min(...ys) > v0.y + sz.y + WARP_MARGIN;
+  if (tiny || off) { el.classList.add('wx'); return; }
+  // Rows above data-crop (a rendering's sky) are left out of the element: near the horizon a ground-plane homography
+  // sends them towards infinity, and WebKit (every iPhone browser) allocates the whole projected box — rendering 2
+  // came to ~20,000 × 4,000 CSS px and killed the tab.
+  const crop = +el.dataset.crop || 0, h = el.naturalHeight - crop;
+  const t = proj(src.map(([x, y]) => [x, y - crop]), dst);
+  const box = [[0, 0], [el.naturalWidth, 0], [el.naturalWidth, h], [0, h]].map(([x, y]) => { const w = t[6]*x + t[7]*y + t[8]; return [w, (t[0]*x + t[1]*y + t[2]) / w, (t[3]*x + t[4]*y + t[5]) / w]; });
+  const bw = Math.max(...box.map(b => b[1])) - Math.min(...box.map(b => b[1])), bh = Math.max(...box.map(b => b[2])) - Math.min(...box.map(b => b[2]));
+  const bad = box.some(b => !(b[0] > 0.05)) || bw * bh > 16 * Math.max(sz.x * sz.y, 4e5);   // crosses the horizon, or far bigger than the screen
+  el.classList.toggle('wx', bad);
+  if (bad) return;
+  el.style.width = el.naturalWidth+'px'; el.style.height = h+'px';
+  if (crop) { el.style.objectFit = 'none'; el.style.objectPosition = '0 ' + (-crop) + 'px'; }
   el.style.transform = 'matrix3d(' + [t[0],t[3],0,t[6], t[1],t[4],0,t[7], 0,0,1,0, t[2],t[5],0,t[8]].join(',') + ')';
 }
 
@@ -876,7 +927,7 @@ function loadCorners(id){ try { const s = localStorage.getItem(key(id)); if (s) 
 function saveCorners(id){ try { localStorage.setItem(key(id), JSON.stringify(R[id].corners)); } catch(e){} }
 IDS.slice().sort((a,b) => FIT[b].rmsMetres - FIT[a].rmsMetres).forEach(id => {
   const el = document.createElement('img'); el.className = 'warp'; el.style.display = 'none';
-  el.style.clipPath = 'inset(' + FIT[id].clipTop + 'px 0 0 0)';
+  el.dataset.crop = FIT[id].clipTop;   // sky rows cut from the element itself (see warp); a clip-path left them in the layer
   el.src = 'media/meta_fb-TulsaDataCenter_2026-04-21_' + FIT[id].file + '.jpg';
   el.onload = draw; rendPane.appendChild(el);
   R[id] = { el, corners: loadCorners(id), src: FIT[id].srcQuad };
@@ -1029,6 +1080,19 @@ function renderList(){
       try { localStorage.setItem(WKEY, parseInt(side.style.width)); } catch(e){} draw(); };
     grip.addEventListener('pointermove', move); grip.addEventListener('pointerup', up);
   });
+})();
+// menu button: show / hide the side panel; the map (or the timeline over it) then fills the screen
+(() => {
+  const root = document.documentElement, btn = document.getElementById('menuBtn'), KEY = 'okdc-side-hidden';
+  const paint = () => { const hid = root.classList.contains('side-hidden');
+    btn.setAttribute('aria-expanded', String(!hid)); btn.setAttribute('aria-label', hid ? 'Open menu' : 'Close menu');
+    btn.querySelector('.ic').textContent = hid ? '☰' : '✕'; btn.querySelector('.tx').textContent = hid ? 'Menu' : 'Close'; };
+  btn.onclick = () => { const hid = root.classList.toggle('side-hidden');
+    if (innerWidth > 700) { try { localStorage.setItem(KEY, hid ? '1' : '0'); } catch (e) {} }   // phones always start collapsed
+    paint(); map.invalidateSize({pan:false}); };
+  // phone: opening the timeline folds the side panel away so the timeline gets the whole screen (Menu button brings it back)
+  document.addEventListener('tl-mode', e => { if (e.detail === 'timeline' && innerWidth <= 700 && !root.classList.contains('side-hidden')) { root.classList.add('side-hidden'); paint(); map.invalidateSize({pan:false}); } });
+  paint();
 })();
 map.on('zoomend moveend viewreset resize', draw);
 map.on('zoomend', relabel);
