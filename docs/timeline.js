@@ -72,6 +72,8 @@
     '.tl-badge{display:inline-block;min-width:16px;padding:0 5px;margin-left:6px;border-radius:9px;background:#d9480f;color:#fff;font:700 11px/16px system-ui,sans-serif}',
     '.tl-ov{position:absolute;inset:0;z-index:1000;background:#f7f6f2;color:#1d1d1b;display:none;flex-direction:column;font:14px/1.5 system-ui,sans-serif;cursor:auto}',
     '.tl-ov.open{display:flex}',
+    // while the timeline covers the map, take the map's layers out of rendering (tiles, images, SVG, labels): pinch-zooming the page over them killed iOS tabs
+    '.tl-on > .leaflet-map-pane,.tl-on > .leaflet-control-container{display:none!important}',
     '.tl-head{padding:12px 20px 10px;border-bottom:1px solid #dddbd3;background:#fff;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}',
     '.tl-head h2{margin:0;font-size:17px;flex:1 1 auto}',
     '.tl-head .tl-upd{color:#6b6a65;font-size:12px}',
@@ -210,8 +212,9 @@
   function render() {
     main.textContent = ''; rail.textContent = ''; cards = {};
     var shown = 0;
-    T.groups.forEach(function (g) {
-      var evs = g.events.filter(matches);
+    // newest first: periods and the entries inside each (the data stays in date order)
+    T.groups.slice().reverse().forEach(function (g) {
+      var evs = g.events.filter(matches).reverse();
       if (!evs.length) return;
       shown += evs.length;
       rail.appendChild(el('a', { href: '#', text: g.label, onclick: function (ev) { ev.preventDefault(); document.getElementById('tl-' + g.id).scrollIntoView({ behavior: 'smooth' }); } }));
@@ -294,6 +297,7 @@
     bMap.setAttribute('aria-pressed', m === 'map' ? 'true' : 'false');
     bTl.setAttribute('aria-pressed', m === 'timeline' ? 'true' : 'false');
     ov.classList.toggle('open', m === 'timeline');
+    container.classList.toggle('tl-on', m === 'timeline');
     try { document.dispatchEvent(new CustomEvent('tl-mode', {detail: m})); } catch (e) {}   // the page folds its side panel away on a phone
     if (m === 'timeline') {
       back.classList.remove('show');
