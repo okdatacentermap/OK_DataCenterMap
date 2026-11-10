@@ -72,6 +72,9 @@
     '.tl-badge{display:inline-block;min-width:16px;padding:0 5px;margin-left:6px;border-radius:9px;background:#d9480f;color:#fff;font:700 11px/16px system-ui,sans-serif}',
     '.tl-ov{position:absolute;inset:0;z-index:1000;background:#f7f6f2;color:#1d1d1b;display:none;flex-direction:column;font:14px/1.5 system-ui,sans-serif;cursor:auto}',
     '.tl-ov.open{display:flex}',
+    '.tl-up .tl-ev{border-left:4px solid #b8421f;background:#fff7f2}',
+    '.tl-up .tl-when{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:9px;background:#b8421f;color:#fff;font:700 11px/16px system-ui,sans-serif}',
+    '.tl-up .tl-where{color:#6b6a65;font-size:12px;margin:0 0 4px}',
     // while the timeline covers the map, take the map's layers out of rendering (tiles, images, SVG, labels): pinch-zooming the page over them killed iOS tabs
     '.tl-on > .leaflet-map-pane,.tl-on > .leaflet-control-container{display:none!important}',
     '.tl-head{padding:12px 20px 10px;border-bottom:1px solid #dddbd3;background:#fff;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}',
@@ -212,6 +215,14 @@
   function render() {
     main.textContent = ''; rail.textContent = ''; cards = {};
     var shown = 0;
+    var up = upcoming();
+    if (up.length) {
+      shown += up.length;
+      rail.appendChild(el('a', { href: '#', text: 'Coming up', onclick: function (ev) { ev.preventDefault(); document.getElementById('tl-upcoming').scrollIntoView({ behavior: 'smooth' }); } }));
+      var ul = el('ol', { class: 'tl-list' });
+      up.forEach(function (u) { ul.appendChild(upCard(u)); });
+      main.appendChild(el('section', { class: 'tl-group tl-up', id: 'tl-upcoming' }, [el('h3', { text: 'Coming up' }), el('h4', { text: 'Scheduled items we are tracking' }), ul]));
+    }
     // newest first: periods and the entries inside each (the data stays in date order)
     T.groups.slice().reverse().forEach(function (g) {
       var evs = g.events.filter(matches).reverse();
@@ -230,6 +241,36 @@
     if (!shown) main.appendChild(el('p', { class: 'tl-empty', text: 'Nothing matches these filters.' }));
     observe();
   }
+  // ---------- upcoming: scheduled items shown from (date - windowDays) until their date, by the visitor's own calendar day ----------
+  var UPC = window.TIMELINE_UPCOMING || { windowDays: 21, items: [] };
+  function ymd(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  function dayNum(s) { var p = s.split('-'); return Math.round(Date.UTC(+p[0], +p[1] - 1, +p[2]) / 86400000); }
+  function upcoming() {
+    var today = dayNum(ymd(new Date())), q = (state.q || '').trim().toLowerCase();
+    return (UPC.items || []).filter(function (u) {
+      var n = dayNum(u.date) - today, win = u.windowDays || UPC.windowDays || 21;
+      if (n < 0 || n > win) return false;
+      if (u.from && dayNum(u.from) > today) return false;
+      if (!q) return true;
+      var hay = (u.title + ' ' + (u.text || '') + ' ' + u.date).toLowerCase();
+      return q.split(/\s+/).every(function (w) { return hay.indexOf(w) >= 0; });
+    }).sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+  }
+  function whenLabel(date) { var n = dayNum(date) - dayNum(ymd(new Date())); return n === 0 ? 'today' : n === 1 ? 'tomorrow' : 'in ' + n + ' days'; }
+  function upCard(u) {
+    var act = el('div', { class: 'tl-act' });
+    (u.src || []).forEach(function (s) { var r = resolveSrc(s); act.appendChild(el('a', { href: r.u, target: '_blank', rel: 'noopener', text: r.t + (isExternal(r.u) ? ' ↗' : '') })); });
+    var d = u.date.split('-'), wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][new Date(+d[0], +d[1] - 1, +d[2]).getDay()];
+    return el('li', { class: 'tl-ev tl-upc', 'data-id': u.id }, [
+      el('div', { class: 'tl-date' }, [wd + ', ' + fmtDate(u.date) + (u.time ? ' · ' + u.time : ''), el('span', { class: 'tl-when', text: whenLabel(u.date) })]),
+      el('h5', { text: u.title }),
+      u.where ? el('p', { class: 'tl-where', text: u.where }) : null,
+      u.text ? el('p', { text: u.text }) : null,
+      (u.tracks || []).length ? el('div', { class: 'tl-tags' }, u.tracks.map(function (k) { return el('span', { class: 'tl-tag', text: T.tracks[k] || k }); })) : null,
+      act
+    ]);
+  }
+
   function card(e) {
     var tags = el('div', { class: 'tl-tags' }, DIMS
       ? (e.projects || []).map(function (p) { var bg = colorOf['p:' + p] || '#888';
