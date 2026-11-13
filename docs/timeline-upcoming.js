@@ -8,6 +8,10 @@
 window.TIMELINE_UPCOMING = {
   windowDays: 21,
   items: [
+    { id: 'up-2026-11-16-persica-bocc', date: '2026-11-16', time: '9:00 am', where: 'Commissioners Meeting Room, North Annex, Wagoner County',
+      title: 'County Commissioners: Persica Solar, LLC v. Board of County Commissioners (CV-25-111)',
+      text: 'The posted agenda lists an executive session on Case No. CV-25-111, Persica Solar, LLC v. Board of County Commissioners (\u201cpending litigation and remanded proceedings\u201d), followed by open-session discussion and possible action on the case, to include possible appeal.',
+      src: [['Wagoner County Commissioners agenda, Nov 16, 2026', 'https://wagonercounty.ok.gov/AgendaCenter/ViewFile/Agenda/_11162026-1205']], tracks: ['power'] },
     { id: 'up-2026-12-02-zca41-hearing', date: '2026-12-02', time: '1:00 pm', where: 'City Council Chamber, 175 E. 2nd St., Tulsa',
       title: 'Planning Commission hearing on the proposed data-center zoning rules (ZCA-41)',
       text: 'The Planning Office’s work-session agenda (Nov 4) says the proposed data-center text amendments are scheduled for a Planning Commission hearing on Dec 2, 2026; after the Commission’s recommendation they go to the City Council.',
