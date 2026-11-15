@@ -598,7 +598,19 @@ window.TIMELINE = {
         { id: '2026-11-10-okc-ext', date: '2026-11-10', tracks: ['region', 'law'],
           title: 'Oklahoma City extends its data-center moratorium through 2027',
           text: 'The Council votes unanimously to extend it to Dec 31, 2027; it can be lifted earlier if zoning-code amendments for data centers are approved.',
-          src: [['News 9 — OKC extends the pause', 'https://www.news9.com/data-centers-in-oklahoma/okc-council-data-center-project-moratorium-extension-vote']] }
+          src: [['News 9 — OKC extends the pause', 'https://www.news9.com/data-centers-in-oklahoma/okc-council-data-center-project-moratorium-extension-vote']] },
+        { id: '2026-09-house-interim-study', date: '2026-09', tracks: ['region', 'law'],
+          title: 'House interim study on data-center benefits, costs and long-term impacts',
+          text: 'Rep. Mark Chapman (R-Broken Arrow) leads the study; the experts discuss utility planning and large power needs, safeguards that keep project costs with the customers causing them, and how water use varies. He will decide afterwards whether more legislative action is warranted. Reported Sep 30.',
+          src: [['OKC Fox — lawmakers hold interim study', 'https://okcfox.com/news/local/oklahoma-lawmakers-hold-interim-study-on-benefits-costs-of-data-center-growth']] },
+        { id: '2026-10-08-iec-draft', date: '2026-10-08', tracks: ['money', 'law'],
+          title: 'State incentive review: draft recommends keeping the data-processing sales-tax exemption, with changes',
+          text: 'The Incentive Evaluation Commission’s draft covers the exemption for computer-services and data-processing machinery and equipment, which includes data centers. It finds exemptions issued ranged from zero to eight a year (2014–2025), and that Oklahoma sets no minimum investment, job or facility-size requirement; most of 17 comparable state programs set minimums of $25–250 million. It recommends having the Tax Commission collect the dollar value of exempt purchases and considering conditions such as limits on water use and on-site power.',
+          src: [['Incentive Evaluation Commission — draft findings, Oct 8, 2026', 'https://oklahoma.gov/content/dam/ok/en/omes/documents/iec-presentation-2026-10-08-UA.pdf']] },
+        { id: '2026-10-28-senate-interim', date: '2026-10-28', tracks: ['region', 'law'],
+          title: 'Two Senate interim studies on data centers',
+          text: 'One, requested by Sen. Kendal Sacchieri, covers environmental impacts; the other, in the Agriculture and Wildlife Committee chaired by Sen. Casey Murdock, covers national security and tax implications. Both senators say they are looking to next session for legislation.',
+          src: [['OKC Fox — two interim studies', 'https://okcfox.com/news/local/two-data-center-interim-studies-with-different-focuses-held-at-oklahoma-state-capitol-sacchieri-murdock']] }
       ]
     }
   ]
