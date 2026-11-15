@@ -1,7 +1,7 @@
 # Disclaimer
 
 This site is a free, independent compilation of public records and published news about large data-center and
-industrial projects in northeast Oklahoma, made for public information. It is not for sale.
+industrial projects in Oklahoma, made for public information. It is not for sale.
 
 ## Accuracy
 
