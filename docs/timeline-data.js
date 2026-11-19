@@ -610,7 +610,15 @@ window.TIMELINE = {
         { id: '2026-10-28-senate-interim', date: '2026-10-28', tracks: ['region', 'law'],
           title: 'Two Senate interim studies on data centers',
           text: 'One, requested by Sen. Kendal Sacchieri, covers environmental impacts; the other, in the Agriculture and Wildlife Committee chaired by Sen. Casey Murdock, covers national security and tax implications. Both senators say they are looking to next session for legislation.',
-          src: [['OKC Fox — two interim studies', 'https://okcfox.com/news/local/two-data-center-interim-studies-with-different-focuses-held-at-oklahoma-state-capitol-sacchieri-murdock']] }
+          src: [['OKC Fox — two interim studies', 'https://okcfox.com/news/local/two-data-center-interim-studies-with-different-focuses-held-at-oklahoma-state-capitol-sacchieri-murdock']] },
+        { id: '2026-10-22-piedmont-cloverleaf', date: '2026-10-22', tracks: ['region', 'law'],
+          title: 'Piedmont Council approves amended master-design conditions for Cloverleaf’s Project Open Sky',
+          text: 'The conditions cap the campus’s water use at 75,000 gallons a day (fire suppression excluded), require a developer-paid water study, note about 6 miles of new sewer line, and bar closing Frisco Road. The Council voted on the rules for the campus, not on the project itself; the next project-approval hearing was reported for Nov 12.',
+          src: [['OKC Fox — Cloverleaf plan advances, final vote delayed', 'https://okcfox.com/news/local/piedmont-data-center-plan-advances-as-council-delays-final-vote-amid-resident-backlash'], ['News 9 — Piedmont advances second proposed data center', 'https://www.news9.com/data-centers-in-oklahoma/piedmont-advances-second-proposed-data-center']], map: [35.712, -97.795, 13] },
+        { id: '2026-10-26-piedmont-beltline', date: '2026-10-26', tracks: ['region', 'law'],
+          title: 'Piedmont Council sends Beltline Energy’s data-center master design back to the Planning Commission',
+          text: 'After a meeting that ran past midnight, the Council returns the master design statement for the 321-acre rezoning request to the Planning Commission, which is set to meet Nov 17 at 6 pm. The Council also postponed action on a proposed data-center moratorium until November. Neither Piedmont project has final approval.',
+          src: [['OKC Fox — Council debates Beltline data center', 'https://okcfox.com/news/local/piedmont-council-spent-hours-debating-beltline-energy-data-center-concerns'], ['News 9 — Piedmont advances second proposed data center', 'https://www.news9.com/data-centers-in-oklahoma/piedmont-advances-second-proposed-data-center']], map: [35.7476, -97.8074, 13] }
       ]
     }
   ]
