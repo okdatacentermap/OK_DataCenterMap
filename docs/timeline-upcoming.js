@@ -16,9 +16,13 @@ window.TIMELINE_UPCOMING = {
       title: 'Planning Commission hearing on the proposed data-center zoning rules (ZCA-41)',
       text: 'The Planning Office’s work-session agenda (Nov 4) says the proposed data-center text amendments are scheduled for a Planning Commission hearing on Dec 2, 2026; after the Commission’s recommendation they go to the City Council.',
       src: [['Planning Commission work session agenda, Nov 4, 2026', 'official/TMAPC/2026-11-04_TMAPC_Work-Session-Agenda_ZCA-41-data-centers.pdf']], tracks: ['anthem'] },
+    { id: 'up-2026-12-02-moratorium-extension', date: '2026-12-02', time: '', where: 'Council Chamber, 175 E. 2nd St., Tulsa',
+      title: 'City Council: ordinance extending the data-center building-permit moratorium through March 31, 2027',
+      text: 'The Council’s Nov 18 agenda lists an ordinance (Emergency Clause; Councilor Bellis) extending the existing moratorium on Data Center Building Permits through March 31, 2027, preserving existing exemptions and appeals procedures, with automatic expiration. The agenda schedules it for the Public Works committee and the Council on Nov 18 and for the Council again on Dec 2.',
+      src: [['City Council agenda, Nov 18, 2026 (item 6.m)', 'official/CityCouncil/2026-11-18_CC_Regular-5PM-Agenda.pdf']], tracks: ['anthem'] },
     { id: 'up-2026-12-31-moratorium-end', date: '2026-12-31', time: '',
       title: 'Council moratorium on new data centers is scheduled to run through this date',
-      text: 'The Council’s March 25, 2026 moratorium (Ord. 25764) is “effective through December 31, 2026”, per the Planning Office’s Nov 4 work-session agenda; Anthem phase 1 and one additional data center are exempt.',
+      text: 'The Council’s March 25, 2026 moratorium (Ord. 25764) is “effective through December 31, 2026”, per the Planning Office’s Nov 4 work-session agenda; Anthem phase 1 and one additional data center are exempt. An ordinance extending it through March 31, 2027 is on the Council’s Nov 18 agenda and set again for Dec 2.',
       src: [['Planning Commission work session agenda, Nov 4, 2026', 'official/TMAPC/2026-11-04_TMAPC_Work-Session-Agenda_ZCA-41-data-centers.pdf'], 'moratorium'], tracks: ['anthem'] }
   ]
 };
